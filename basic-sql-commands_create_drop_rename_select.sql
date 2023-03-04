@@ -14,7 +14,8 @@ If you are using sql server 2000 than can follow the below code:
 	EXEC sp_renamedb 'old_name' , 'new_name'  ;
 Select the database in MySql: 
 	USE DATABASE database_name;
-	----------------------------------------------
+
+***********************************************************************************************************
 
 SQL SELECT Statement:
  		SELECT column1, column2....columnN FROM table_name; 
@@ -40,6 +41,68 @@ SQL COUNT:
 SQL HAVING:
 SELECT SUM(column_name) FROM table_name WHERE CONDITION GROUP BY column_name HAVING (arithematic function condition);
 ---------------------------------------------------------------------------
+JOINS:
+-------
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
+
+SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;
+--------------------------------------------------------
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition);
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY
+  (SELECT column_name
+  FROM table_name
+  WHERE condition);
+  
+SELECT *
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE condition;
+
+************************************************************
 
 SQL CREATE TABLE Statement:
 	CREATE TABLE table_name(
@@ -61,7 +124,9 @@ SQL DESC Statement:
 	DESC table_name;
 SQL TRUNCATE TABLE Statement:
 	TRUNCATE TABLE table_name;
--------------------------------------------------------------------------
+	
+******************************************************************************************
+
 SQL ALTER TABLE Statement:
 
 	ALTER TABLE table_name {ADD|DROP|MODIFY} column_name {data_ype};
